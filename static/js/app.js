@@ -1,4 +1,3 @@
-
 function buildPlot() {
   /* data route */
 var url = "/chartdata";
@@ -19,7 +18,9 @@ d3.json(url).then(function(response) {
   };
 
   Plotly.newPlot("plot", data, layout);
-});
-}
 
+});
+
+}
+  
 buildPlot();

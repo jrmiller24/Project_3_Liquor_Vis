@@ -131,13 +131,98 @@ def license():
         "x":liquor_type,
         "y":counts, 
         "type": "bar"
+        
     })
+
+# @app.route('/chart')
+# def pie():
+
+#     license_test = engine.execute(
+#         "SELECT field3, COUNT(field3) AS countBiz FROM licenses  GROUP BY field3")
+
+#     rows = list(license_test.fetchall())
+#     #print(rows[0])
+#     counts = []
+#     liquor_type = []
+#     for row_result in rows:
+#         counts.append(row_result["countBiz"])
+#         liquor_type.append(row_result["field3"])
+
+#     return jsonify({
+#         labels:liquor_type,
+#         values:counts,
+#         "type": "pie"
 
 
 @app.route("/chart")
 def chart():
     """Return the homepage."""
     return render_template("chart.html")
+
+
+@app.route("/piedata")
+def license_pie():
+
+    license_test = engine.execute(
+        "SELECT field3, COUNT(field3) AS countBiz FROM licenses  GROUP BY field3")
+
+    # license_count = db.session.query(db.field3)#, func.count(db.field3)).group_by(db.field3).all()
+
+    # license_type = [licenses.field3]
+    # license_count = [result[1] for result in results]
+
+    # trace = {
+    #     "x": license_type,
+    #     "y": license_count,
+    #     "type": "bar"
+    # }
+
+    #db.session.query (func.count(licenses.field3))
+    # return jsonify([{
+    #     "field3": row['field3'],
+    #     "count": row["countBiz"]
+    # } for row in license_test.fetchall()])  
+    rows = list(license_test.fetchall())
+    #print(rows[0])
+    counts = []
+    liquor_type = []
+    for row_result in rows:
+        counts.append(row_result["countBiz"])
+        liquor_type.append(row_result["field3"])
+
+    # return "hey"  # jsonify(trace)
+    return jsonify({
+        "labels":liquor_type,
+        "values":counts, 
+        "type": "pie"
+        
+    })
+
+# @app.route('/chart')
+# def pie():
+
+#     license_test = engine.execute(
+#         "SELECT field3, COUNT(field3) AS countBiz FROM licenses  GROUP BY field3")
+
+#     rows = list(license_test.fetchall())
+#     #print(rows[0])
+#     counts = []
+#     liquor_type = []
+#     for row_result in rows:
+#         counts.append(row_result["countBiz"])
+#         liquor_type.append(row_result["field3"])
+
+#     return jsonify({
+#         labels:liquor_type,
+#         values:counts,
+#         "type": "pie"
+
+
+@app.route("/pie")
+def pie():
+    """Return the homepage."""
+    return render_template("pie.html")
+
 
 if __name__ == "__main__":
     app.run()
