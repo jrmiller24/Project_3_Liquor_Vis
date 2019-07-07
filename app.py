@@ -13,6 +13,8 @@ from sqlalchemy import create_engine, func
 from flask import Flask, jsonify, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 
+# import Granim from 'react-granim'
+ 
 app = Flask(__name__)
 
 
@@ -81,6 +83,11 @@ def setup():
 
 @app.route("/")
 def index():
+    """Return the homepage."""
+    return render_template("dashboard.html")
+
+@app.route("/map")
+def cluster_map():
     """Return the homepage."""
     return render_template("index.html")
 

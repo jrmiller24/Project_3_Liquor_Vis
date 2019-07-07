@@ -1,34 +1,87 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Denver Liquor License Visualization</title>
-        <!-- Leaflet JS & CSS -->
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Denver Liquor License Visualization</title>
+    <!-- Leaflet JS & CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
         integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
-        crossorigin=""/>
-        <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
         integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
         crossorigin=""></script>
 
-        <!-- d3 JavaScript -->
-        <script src="https://d3js.org/d3.v4.min.js"></script>
+    <!-- d3 JavaScript -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
 
-        <!-- Our CSS -->
-        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+    <!-- Our CSS -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
 
-    
-    </head>
-    <body>
-            <!-- map div -->
-        <div id="map"></div>
-        <!-- API key -->
-        <script type="text/javascript" src="{{url_for('static',filename='js/config.js')}}"></script>
-        <!-- JS  -->
-        <script type="text/javascript" src="{{url_for('static',filename='js/logic.js')}}"></script>
-        
-    </body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <title>Denver Liquor License Visualization - Just wait until the Final Project.</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">HomePage</a>
+            </div>
+
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                            aria-haspopup="true" aria-expanded="false">Charts <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="map">Cluster Map</a></li>
+                            <li><a href="pie">Pie Chart</a></li>
+                            <li><a href="chart">Bar Chart</a></li>
+                            <!-- <li><a href="09_Miller_Web_Visualization_Wind_05.html">Wind Speed</a></li> -->
+                        </ul>
+                    </li>
+                    <!-- <li class="dropdown"></li>
+                                                <li><a href="09_Miller_Web_Visualization_Comparisons Page_12.html">Comparisons</a></li>
+                                                <li><a href="09_Miller_Web Visualization_Data Page_11.html">Data</a></li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- map div -->
+    <div id="map"></div>
+    <!-- API key -->
+    <script type="text/javascript" src="{{url_for('static',filename='js/config.js')}}"></script>
+    <!-- JS  -->
+    <script type="text/javascript" src="{{url_for('static',filename='js/logic.js')}}"></script>
+
+</body>
+
 </html>
