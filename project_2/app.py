@@ -33657,8 +33657,8 @@ def license():
     counts = []
     liquor_type = []
     for row_result in rows:
-        counts.append(row_result[0])#["countBiz"])
-        liquor_type.append(row_result[1])#["field3"])
+        counts.append(row_result[1])#["countBiz"])
+        liquor_type.append(row_result[0])#["field3"])
 
     # return "hey"  # jsonify(trace)
     return jsonify({
