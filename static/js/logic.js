@@ -12,8 +12,8 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
   accessToken: API_KEY
 }).addTo(map);
 
-var neighborhood_data = 'Resources/statistical_neighborhoods.geojson';
-var license_data = 'Resources/license_data.geojson';
+var neighborhood_data = '/neighborhoods';
+// var license_data = 'Resources/license_data.geojson';
 
 // Our style object
 var mapStyle = {

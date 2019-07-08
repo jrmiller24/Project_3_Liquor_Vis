@@ -8,12 +8,12 @@ d3.json(url).then(function(response) {
   var data = [response];
 
   var layout = {
-    title: "Liquor by Type in Denver",
+    title: "License by Classification in Denver",
     xaxis: {
-      title: "Class"
+      title: "Liquor License Classification"
     },
     yaxis: {
-      title: "Count"
+      title: "Number of Licenses"
     }
   };
 

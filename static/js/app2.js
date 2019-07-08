@@ -9,8 +9,9 @@ function buildPlot() {
     var data = [response];
 
     var layout = {
-      height: 400,
-      width: 500
+      title: "License Classification in Denver",
+      height: 600,
+      width: 700
       }
   
     Plotly.newPlot('pie', data, layout);
