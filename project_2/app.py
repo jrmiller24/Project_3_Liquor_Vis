@@ -20,9 +20,15 @@ app = Flask(__name__)
 # Database Setup
 #################################################
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db/licenses.sqlite"
+# sqlite databases work nice for quick prototyping locally, and at one point I thought they'd work fine on heroku, but apparnetly  not
+# heroku has "ephemeral filesystem"
+# db_uri = "sqlite:///db/licenses.sqlite"
+
+db_uri = 'postgres://nkdztfvxuluvdi:dfd5b864df3f4afc4ecf7fe67631975e68ebef45a2caec748bb90aa30bfc3378@ec2-54-243-47-196.compute-1.amazonaws.com:5432/d7ibs26kmhulvc'
+   
+app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
 db = SQLAlchemy(app)
-engine = create_engine("sqlite:///db/licenses.sqlite")
+engine = create_engine(db_uri)
 
 
 class License(db.Model):
@@ -33639,20 +33645,20 @@ def licensetype():
   }
 ]
 })
-
+#D'OH!
 @app.route("/chartdata")
 def license():
 
     license_test = engine.execute(
-        "SELECT field3, COUNT(field3) AS countBiz FROM licenses  GROUP BY field3")
+        'SELECT field3, COUNT(field3) AS "countBiz" FROM licenses  GROUP BY field3')
 
     
     rows = list(license_test.fetchall())
     counts = []
     liquor_type = []
     for row_result in rows:
-        counts.append(row_result["countBiz"])
-        liquor_type.append(row_result["field3"])
+        counts.append(row_result[0])#["countBiz"])
+        liquor_type.append(row_result[1])#["field3"])
 
     # return "hey"  # jsonify(trace)
     return jsonify({
@@ -33679,8 +33685,8 @@ def license_pie():
     counts = []
     liquor_type = []
     for row_result in rows:
-        counts.append(row_result["countBiz"])
-        liquor_type.append(row_result["field3"])
+        counts.append(row_result[0])#"countBiz"])
+        liquor_type.append(row_result[1])#"field3"])
 
     return jsonify({
         "labels":liquor_type,
