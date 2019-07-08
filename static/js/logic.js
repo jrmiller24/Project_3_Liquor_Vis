@@ -13,7 +13,7 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 }).addTo(map);
 
 var neighborhood_data = '/neighborhoods';
-// var license_data = 'Resources/license_data.geojson';
+var license_data = '/licenses';
 
 // Our style object
 var mapStyle = {

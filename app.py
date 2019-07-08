@@ -102,6 +102,14 @@ def neighborhoods():
         print(feature['properties'])
     return jsonify(data)
 
+@app.route("/licenses")
+def licensetype():
+    path = 'static/Resources/license_data.geojson'
+    with open(path) as f:
+        data = json.load(f)
+    for feature in data['features']:
+        print(feature['properties'])
+    return jsonify(data)
 
 @app.route("/chartdata")
 def license():
